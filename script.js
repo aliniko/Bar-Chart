@@ -117,12 +117,12 @@ let generateAxes = () => {
 
     let xAxis = d3.axisBottom(xAxisScale)
     let yAxis = d3.axisLeft(yAxisScale)
-
+// My Chart should have a <g> element x-axis with a corresponding id="x-axis"
     svg.append('g')
         .call(xAxis)
         .attr('id', 'x-axis')
         .attr('transform', 'translate(0, ' + (height-padding) + ')')
-
+// My Chart should have a <g> element y-axis with a corresponding id="y-axis"
     svg.append('g')
         .call(yAxis)
         .attr('id', 'y-axis')
@@ -130,9 +130,10 @@ let generateAxes = () => {
         
 }
 
-//  Position title tag
+//  fetching JSON data
 req.open('GET', url, true)
 
+// reference to a function once the request is obtained
 // Set onload, parse the responsetext and store as data
 req.onload = () => {
     data = JSON.parse(req.responseText)
